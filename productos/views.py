@@ -11,4 +11,4 @@ class ListaProducto(ListView):
     queryset = Categoria.objects.get(id = 1)
     model = Categoria
     template_name = 'productos/lista.html'
-    context_object_name = 'categoria'
+    context_object_name = 'categorias'

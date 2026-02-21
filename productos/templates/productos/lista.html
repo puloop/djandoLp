@@ -1,20 +1,14 @@
 {% extends 'productos/base.html' %}
 
-{% block title %}Detalle de Categoría{% endblock %}
+{% block title %}Lista de Categorías{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h2 class="mb-0">Categoría: {{ categoria.nombre }}</h2>
-            </div>
-            <div class="card-body">
-                <p class="lead">{{ categoria.descripcion|default:"Sin descripción disponible." }}</p>
-                <hr>
-                <a href="{% url 'productos:lista_productos' %}" class="btn btn-secondary">Volver al inicio</a>
-            </div>
-        </div>
-    </div>
-</div>
+    <h2>Categorías de Productos</h2>
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{ categoria.nombre }}</li>
+        {% empty %}
+            <li>No hay categorías registradas.</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
