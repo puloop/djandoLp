@@ -1,0 +1,36 @@
+{% extends 'productos/base.html' %}
+
+{% block title %}Inicio - Sistema de Importación{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-primary">Bienvenido al Sistema de Importación</h1>
+        <p class="col-md-8 fs-4 text-secondary">
+            Gestiona tus productos, categorías y el seguimiento de embarques de manera eficiente desde un solo lugar.
+        </p>
+        <hr class="my-4">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="{% url 'productos:lista_productos' %}" class="btn btn-primary btn-lg px-4 me-md-2">Ver Productos</a>
+            <a href="{% url 'productos:lista_embarque' %}" class="btn btn-outline-secondary btn-lg px-4">Gestionar Embarques</a>
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3 shadow">
+            <h2>Control de Inventario</h2>
+            <p>Accede rápidamente al listado completo de productos, ajusta el stock y organiza todo por categorías.</p>
+            <a href="{% url 'productos:lista_productos' %}" class="btn btn-outline-light">Ir a Inventario</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-white border rounded-3 shadow">
+            <h2>Seguimiento de Embarques</h2>
+            <p>Consulta el estado de tus importaciones mediante el código de rastreo y verifica las fechas de llegada.</p>
+            <a href="{% url 'productos:lista_embarque' %}" class="btn btn-outline-primary">Ver Embarques</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
