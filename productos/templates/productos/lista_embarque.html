@@ -1,0 +1,14 @@
+ {%extiende 'productos/base.html' %}
+
+ {% block page_title %}Listado de Embarques{% endblock %}
+
+ {% contenido del bloque %}
+
+ < div class = 'fila' >
+ {% para embarcar en embarcar %}
+ < h3 > {{ embarque.codigo_rastreo }} </ h3 >
+ <h3> { { embarque.fecha_llegada } } </h3>
+ {%endfor%}
+
+ </div>​​
+ {% endblock %}

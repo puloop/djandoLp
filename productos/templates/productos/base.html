@@ -1,67 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Sistema de Importación</title>
- <!-- Bootstrap CSS desde CDN (Content Delivery Network) -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel <style>
- body {
- font-size: .875rem; /* Ajuste del tamaño de fuente base */
- }
- .navbar {
- background-color: #343a40; /* Color de fondo para la barra de navegación */
- }
- </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Importación{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; }
+    </style>
 </head>
 <body>
-<!-- Cabecera de la página con la barra de navegación de Bootstrap -->
-<header>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
- <div class="container-fluid">
- <a class="navbar-brand" href="{% url 'productos:lista_productos' %}">Sistema Importa <!-- Botón de hamburguesa para colapsar el menú en móviles -->
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targe2.
- <span class="navbar-toggler-icon"></span>
- </button>
- <!-- Contenido del menú -->
- <div class="collapse navbar-collapse" id="navbarNav">
- <ul class="navbar-nav ms-auto"> <!-- ms-auto empuja los elementos a la derecha -
- <li class="nav-item">
- <a class="nav-link" href="{% url 'productos:lista_productos' %}">Productos</a> </li>
- <li class="nav-item">
- <a class="nav-link" href="{% url 'productos:embarque_lista' %}">Embarques</a>
- </li>
- <li class="nav-item">
- <a class="nav-link" href="/admin/">Admin</a>
- </li>
- </ul>
- </div>
- </div>
- </nav>
-</header>
-<div class="container-fluid">
- <div class="row">
- <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
- <!-- Sección para el título de la página y botones de acción contextuales -->
- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items- <h1 class="h2">{% block page_title %}{% endblock %}</h1>
- {% if request.resolver_match.view_name == 'productos:lista_productos' %}
- <div class="btn-toolbar mb-2 mb-md-0">
- <a href="{% url 'productos:producto_crear' %}" class="btn btn-sm btn-out Añadir Nuevo Producto
- </a>
- </div>
- {% endif %}
- {% if request.resolver_match.view_name == 'productos:embarque_lista' %}
- <div class="btn-toolbar mb-2 mb-md-0">
- <a href="{% url 'productos:embarque_crear' %}" class="btn btn-sm btn-out Añadir Nuevo Embarque
- </a>
- </div>
- {% endif %}
- </div>
- {% block content %}<!-- Este bloque será rellenado por las plantillas hijas --
- </main>
- </div>
-</div>
-<!-- Bootstrap Bundle con Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'productos:lista_productos' %}">Logix Import</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'productos:lista_productos' %}">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'productos:lista_embarque' %}">Listado de Embarques</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Características</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
